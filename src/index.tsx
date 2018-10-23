@@ -17,14 +17,13 @@ import { ReactNode } from 'react'
 
 interface PortalProps {
     children: ReactNode;
-    target?: HTMLElement;
+    target: HTMLElement;
     className?: string;
 }
 
 export default class Portal extends React.Component<PortalProps, {}> {
 
-    static defaultProps: PortalProps = {
-        children: <div></div>,
+    static defaultProps = {
         target: document.body
     };
     wrapper: HTMLElement;
