@@ -43,7 +43,6 @@ export default class Portal extends React.Component {
     }
 }
 Portal.defaultProps = {
-    children: React.createElement("div", null),
     target: document.body
 };
 //# sourceMappingURL=index.js.map

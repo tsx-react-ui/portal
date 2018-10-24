@@ -56,14 +56,14 @@ export default class Portal extends React.Component<PortalProps, {}> {
     }
 
 
-    mountChild(target: HTMLElement) {
+    mountChild(target: HTMLElement): void {
         this.targetNode = ReactDOM.findDOMNode(target);
         if (this.targetNode !== null) {
             this.targetNode.appendChild(this.wrapper);
         }
     }
 
-    unmountChild() {
+    unmountChild(): void {
         if (this.targetNode) {
             this.targetNode.removeChild(this.wrapper);
             this.targetNode = null;

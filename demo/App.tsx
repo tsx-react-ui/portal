@@ -1,5 +1,5 @@
-import React from 'react'
-import Portal from '../src/index'
+import * as React from 'react'
+import Portal from '../dist/index'
 import './index.scss'
 
 export default class App extends React.Component {
