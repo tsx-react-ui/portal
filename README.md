@@ -39,7 +39,7 @@ npm i @tsx-react-ui/portal --save
 ```
 详细配置：
 ```jsx
-<Portal className="test" target={document.getElementById('test') || undefined}>
+<Portal className="test" target={() => document.getElementById('test')}>
     <div>我被转移到body下了</div>
 </Portal>
 ```
@@ -48,7 +48,7 @@ npm i @tsx-react-ui/portal --save
 | Prop | Type | Default | Description |
 | ---- |:----:|:-------:| :----------:|
 | **`children`** | `ReactNode` | `undefined` | 被传送的组件 |
-| **`target`** | `HTMLElement | undefined` | `document.body` | 目标元素 |
+| **`target`** | `function` | `() => document.body` | 返回目标元素 |
 | **`className`** | `string` | `undefined` | 自定义样式名 |
 
 ---

@@ -7,7 +7,6 @@
 
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
-import { ReactNode } from 'react'
 
 /**
  * @class Portal
@@ -16,15 +15,15 @@ import { ReactNode } from 'react'
  */
 
 interface PortalProps {
-    children: ReactNode;
-    target: HTMLElement;
+    children: React.ReactNode;
+    target: () => HTMLElement;
     className?: string;
 }
 
 export default class Portal extends React.Component<PortalProps, {}> {
 
     static defaultProps = {
-        target: document.body
+        target: () => document.body
     };
     wrapper: HTMLElement;
     targetNode: Element | Text | null;
@@ -46,9 +45,8 @@ export default class Portal extends React.Component<PortalProps, {}> {
     }
 
     componentDidMount() {
-        if (this.props.target !== undefined) { 
-            this.mountChild(this.props.target);
-        }
+        const targetProp = this.props.target() || document.body;
+        this.mountChild(targetProp);
     }
 
     componentWillUnmount() {

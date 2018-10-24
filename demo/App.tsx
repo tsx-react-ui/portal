@@ -8,7 +8,8 @@ export default class App extends React.Component {
     render() {
         return (
             <section className="container">
-                <Portal className="test" target={document.getElementById('test') || undefined}>
+                <div id="test"></div>
+                <Portal className="test" target={() => document.getElementById('test')}>
                     <div>我被转移到body下了</div>
                 </Portal>
             </section>

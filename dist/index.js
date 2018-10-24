@@ -19,9 +19,8 @@ export default class Portal extends React.Component {
         }
     }
     componentDidMount() {
-        if (this.props.target !== undefined) {
-            this.mountChild(this.props.target);
-        }
+        const targetProp = this.props.target() || document.body;
+        this.mountChild(targetProp);
     }
     componentWillUnmount() {
         this.unmountChild();
@@ -43,6 +42,6 @@ export default class Portal extends React.Component {
     }
 }
 Portal.defaultProps = {
-    target: document.body
+    target: () => document.body
 };
 //# sourceMappingURL=index.js.map
